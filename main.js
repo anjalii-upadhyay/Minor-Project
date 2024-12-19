@@ -2,32 +2,41 @@
 let currentFaceIndex = 0;
 const faces = ["front", "bottom", "back", "top"];
 const textContainer = document.querySelector(".left-text");
-let isRotating = false;
 let rotationInProgress = false;
+let firstCycleCompleted = false;
 
 window.addEventListener("wheel", (event) => {
-    if (rotationInProgress) return;  // Prevent scrolling while rotation is in progress
+    if (rotationInProgress) return;
 
-    rotationInProgress = true;  // Set flag to prevent multiple rotations during the process
+    rotationInProgress = true;
 
-    // Direction of scroll
     if (event.deltaY > 0) {
         // Scroll down - Move to the next face
-        currentFaceIndex = (currentFaceIndex + 1) % faces.length; // Cycle forward
+        currentFaceIndex = (currentFaceIndex + 1) % faces.length;
     } else {
         // Scroll up - Move to the previous face
-        currentFaceIndex = (currentFaceIndex - 1 + faces.length) % faces.length; // Cycle backward
+        currentFaceIndex = (currentFaceIndex - 1 + faces.length) % faces.length;
     }
 
     const newAngle = -currentFaceIndex * 90;
-    textContainer.style.transform = `rotateX(${newAngle}deg)`;  // Rotate text
 
-    // Allow scrolling only after a full rotation is complete
+    textContainer.style.transform = `rotateX(${newAngle}deg)`;
+
+    // Check if the first cycle is complete
+    if (currentFaceIndex === 0) {
+        firstCycleCompleted = true;
+    }
+
     setTimeout(() => {
-        rotationInProgress = false;  // Reset flag after rotation completes
-        window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });  // Scroll down after full rotation
-    }, 2000); // Match timeout duration with the rotation time
+        rotationInProgress = false;
+
+        // If the first cycle is complete, allow main page scrolling
+        if (firstCycleCompleted) {
+            document.body.style.overflowY = "auto";
+        }
+    }, 1000);
 });
+document.body.style.overflowY = "hidden";
 
 
 // ------------------------ Find Turfs ------------------------------

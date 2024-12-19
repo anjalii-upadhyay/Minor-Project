@@ -260,8 +260,6 @@ margin-bottom: 5%;
   transition: transform 1s ease-in-out; 
   position: relative;
   color: azure;
-
-  overflow: hidden;
 }
 
 .face {
@@ -276,7 +274,6 @@ margin-bottom: 5%;
   font-size: 24px;
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  backface-visibility: hidden;
 }
 
 /* Face Positions */
