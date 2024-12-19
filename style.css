@@ -179,14 +179,14 @@ nav ul li a {
 nav ul li a:hover {
   background-color: #8189A8;
   border-radius: 30px;
-  border-color: #c6a088;
+  border-color: #c4f6ab97;
   border-width: 200000px;  
 }
 
 nav ul li ul.dropdown li{
   display: block;
   font-size: 17px;
-  background: #5aacf821 ;
+  background: #10432a92 ;
   padding-top: 3%;
   padding-bottom: 3%;
   padding-left: 0%;
@@ -236,7 +236,7 @@ margin-bottom: 5%;
   padding: 0 !important;
 }
 
-/* ------------------ Home Page ----------------- */
+/* ---------------- Home Page ----------------- */
 .containerParallax {
   display: flex;
   flex-direction: row;
@@ -249,6 +249,8 @@ margin-bottom: 5%;
 .containerParallax::-webkit-scrollbar {
   display: none;
 }
+
+/* ----------------- Text ----------------- */
 
 .left-text {
   flex: 1;
@@ -272,15 +274,20 @@ margin-bottom: 5%;
   justify-content: center;
   align-items: center;
   font-size: 24px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  /* background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2); */
 }
 
-/* Face Positions */
+.face h1{
+  display: block;
+}
+
 .front { transform: rotateX(0deg) translateZ(150px); }
 .top { transform: rotateX(90deg) translateZ(150px); }
 .back { transform: rotateX(180deg) translateZ(150px); }
 .bottom { transform: rotateX(-90deg) translateZ(150px); }
+
+/* --------------- Images ---------------- */
 
 .right-parallax {
   display: flex;
@@ -297,26 +304,53 @@ margin-bottom: 5%;
   width: 35%;
   height: 30%;
   border-radius: 15%;
+  opacity: 0; 
+  transition: transform 1s ease-out, opacity 1s ease-out;
 }
 
 .image1 {
   top: 10%;
   left: 60%;
+  transform: translateX(100%);
 }
 
 .image2 {
   top: 10%;
   left: 15%;
+  transform: translateY(-100%);
 }
 
 .image3 {
   top: 60%;
   left: 15%;
+  transform: translateY(100%);
 }
 
 .image4 {
   top: 60%;
   left: 60%;
+  transform: translateX(100%);
+}
+
+.image.in-view {
+  opacity: 1; 
+  transform: translateX(0) translateY(0); 
+}
+
+.image.pulsate {
+  animation: zoomInOut 1s ease-in-out; 
+}
+
+@keyframes zoomInOut {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .search {
@@ -358,16 +392,12 @@ margin-bottom: 5%;
   background-color: #f1f1f1;
 }
 
-
-
-/* ----------------- browse turfs ---------------- */
-.find-turf {
-  color: azure;
-}
+/* ----------------- Browse Turfs ---------------- */
 
 .find-turf h1 {
   margin-left: 3%;
-  font-size: 3rem;
+  font-size: 2.5rem;
+  color: azure;
 }
 
 .scrollable-wrapper {
@@ -394,12 +424,60 @@ margin-bottom: 5%;
 }
 
 .turf1, .turf2, .turf3, .turf4, .turf5, .turf6, .turf7 {
-  margin-left: 2%;
-  background-color: #c6a088;
+  margin-left: 3%;
+  padding-left: 1.47%;
+  padding-top: 1.3%;
+  background-color: #c6a088b1;
   border-radius: 10%;
   height: 60vh;
   width: 20%;
   flex-shrink: 0;
+}
+
+.turf1, .turf2, .turf3, .turf4, .turf5, .turf6, .turf7 p{
+  font-size: 1.2em;
+}
+
+.turf1 img {
+  border-radius: 15%;
+  height: 45%;
+  width: 93%;
+}
+
+.turf2 img {
+  border-radius: 15%;
+  height: 45%;
+  width: 93%;
+}
+
+.turf3 img {
+  border-radius: 15%;
+  height: 45%;
+  width: 93%;
+}
+
+.turf4 img {
+  border-radius: 15%;
+  height: 45%;
+  width: 93%;
+}
+
+.turf5 img {
+  border-radius: 15%;
+  height: 45%;
+  width: 93%;
+}
+
+.turf6 img {
+  border-radius: 15%;
+  height: 45%;
+  width: 93%;
+}
+
+.turf7 img {
+  border-radius: 15%;
+  height: 45%;
+  width: 93%;
 }
 
 .arrow {
@@ -431,4 +509,57 @@ margin-bottom: 5%;
 
 .arrow:hover {
   background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* --------------- Sports Categories --------------- */
+
+.sports-categories h1 {
+  padding-left: 3%;
+  color: azure;
+  font-size: 2.5rem;
+}
+
+.categories {
+  display: flex;
+  flex-direction: row;
+  gap: 2%;
+  width: 100%;
+  margin-bottom: 10%;
+}
+
+.sports1, .sports2, .sports3, .sports4, .sports5 {
+  margin-left: 3%;
+  padding-left: 1.47%;
+  padding-top: 1.3%;
+  background-color: #c6a0882c;
+  border-radius: 50%;
+  height: 30vh;
+  width: 13%;
+  flex-shrink: 0;
+}
+
+.sports1 {
+  background: url('/static/football.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.sports2 {
+  background: url('/static/hockey.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.sports3 {
+  background: url('/static/badminton.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.sports4 {
+  background: url('/static/cricket.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.sports5 {
+  background: url('/static/basketball.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
