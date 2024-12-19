@@ -1,0 +1,323 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    /* background-color: #1F4529; */
+    background-color: black;
+    /* background: url('/static/turf-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover; */
+    font-family: Arial, sans-serif;
+    overflow: auto;
+}
+
+.bg {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  z-index: -1;
+  opacity: 0.4;
+}
+/* ----------Starting animation-SQUAD UP--------- */
+
+.animation-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.football-wrapper {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    left: 0%;
+    bottom: 50%;
+    transform-origin: center center;
+    animation: moveAndZoom 2.5s ease-in-out forwards;
+}
+
+.football {
+    width: 100%;
+    height: 100%;
+    background: url('/static/football.png')no-repeat center center;
+    background-size: cover;
+    border-radius: 50%;
+    transform-origin: center;
+    animation: rotateBall 1s linear infinite, hideFootball 0s 2.5s forwards;
+}
+
+@keyframes moveAndZoom {
+    0% {
+        transform: translate(0, 0) scale(10);
+    }
+    50% {
+        transform: translate(calc(50vw - 25px), calc(50vh - 25px)) scale(50) rotate(180deg);
+    }
+    100% {
+        transform: translate(calc(50vw - 25px), -20vh) scale(400) rotate(720deg);
+    }
+}
+
+@keyframes hideFootball {
+  0% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+      visibility: hidden;
+  }
+}
+
+@keyframes rotateBall {
+    0% {
+        transform: rotate(0deg); 
+    }
+    100% {
+        transform: rotate(720deg);
+    }
+}
+
+.squad-up{
+  text-align: center;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  width: 90vw;
+  transform: translate(-50%, -50%) scale(0.6);
+  font-size: 5rem;
+  color: #efe9e9;
+  opacity: 0;
+  animation: fadeInAndScale 0.5s ease-out 2.5s forwards, fadeOut 1s ease-out 4s forwards;
+  background-image: url(https://media2.giphy.com/media/HkEDr0jVekaZO/giphy.gif?cid=790b761…&ct=g&rid=giphy.gif);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  display: inline-block;
+}
+
+@keyframes fadeInAndScale {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* ----------------Navigation Bar---------------- */
+header {
+  color: #fff;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 8;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1800px;
+  margin-top: 0vh;
+  margin-bottom: 1vh;
+  padding: 0 20px;
+}
+
+.logo img {
+  height: 50px; 
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  min-width: 450px;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li a {
+  color: #fafafa;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-family: "Georgia", serif;
+  font-size:30px;
+  font-weight: 500;
+  font-style: normal;
+}
+
+nav ul li a:hover {
+  background-color: #8189A8;
+  border-radius: 30px;
+  border-color: #c6a088;
+  border-width: 200000px;  
+}
+
+nav ul li ul.dropdown li{
+  display: block;
+  font-size: 17px;
+  background: #5aacf821 ;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  padding-left: 0%;
+  padding-right: 0%;
+  width: 15vw;
+}
+
+nav ul li ul.dropdown{
+  width: 10%;
+  /* font-size: 17px; */
+  position: absolute;
+  z-index: 999;
+  display: none;
+  margin-top: 0.6%;
+}
+
+nav ul li ul.dropdown li a{
+  font-size: 25px;
+  width: fit-content;
+}
+
+nav ul li:hover ul.dropdown{
+  display: block;
+}
+
+.logo-1,.logo-2 {
+  margin: 0;
+} 
+
+.logo-1 img {
+  max-width: 100%;
+  width: auto;
+  /* position: fixed; */
+}
+
+.logo-2 {
+font-family: Lucida, cursive;
+letter-spacing: 1px;
+width: fit-content;
+margin: 0;
+margin-bottom: 5%;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 0 !important;
+}
+
+/* ------------------ Home Page ----------------- */
+.containerParallax {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.left-text {
+  flex: 1;
+  padding: 2rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  color: azure;
+}
+
+.right-parallax {
+  flex: 1;
+  position: relative;
+  height: 300vh;
+}
+
+.image {
+  position: absolute;
+  width: 40vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-out;
+}
+
+.image1 {
+  height: 12%;
+  width: 24%;
+}
+
+.image2 {
+  height: 12%;
+  width: 70%;
+}
+
+/* Initial Positions */
+.image1 { right: -50%; top: 2%; }
+.image2 { top: -200px; left: 40%; }
+.image3 { right: -200px; top: 40%; }
+.image4 { right: -200px; bottom: 30%; }
+.image5 { bottom: -200px; left: 20%; }
+.image6 { bottom: -200px; right: 30%; }
+.image7 { right: -200px; top: 70%; }
+
+/* Final Positions */
+.active.image1 { transform: translateX(-100%); opacity: 1; }
+.active.image2 { transform: translateY(200px); opacity: 1; }
+.active.image3 { transform: translateX(-200px); opacity: 1; }
+.active.image4 { transform: translateX(-200px); opacity: 1; }
+.active.image5 { transform: translateY(-200px); opacity: 1; }
+.active.image6 { transform: translateY(-200px); opacity: 1; }
+.active.image7 { transform: translateX(-200px); opacity: 1; }
+
+/* .image-enter-right {
+  transform: translateX(100vw);
+}
+
+.image-enter-top {
+  transform: translateY(-100vh); 
+}
+
+.image-enter-bottom {
+  transform: translateY(100vh); 
+}
+
+.image.in-view {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+} */
+
+/* .image1 { background-image: url("/static/image1.png"); top: 2%; left: 0%; }
+.image2 { background-image: url("/static/image2.png"); top: 2%; left: 0%; }
+.image3 { background-image: url("/static/image3.png"); top: 2%; left: 45%; }
+.image4 { background-image: url("/static/image4.png"); top: 20%; left: 40%; }
+.image5 { background-image: url("/static/image5.png"); top: 70%; left: 50%; }
+.image6 { background-image: url("/static/image6.png"); top: 40%; left: 35%; }
+.image7 { background-image: url("/static/image7.png"); top: 80%; left: 45%; } */
