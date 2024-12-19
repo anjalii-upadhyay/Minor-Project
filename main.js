@@ -9,7 +9,7 @@
 //       (entries) => {
 //         entries.forEach((entry) => {
 //           if (entry.isIntersecting) {
-//             entry.target.classList.remove("image-hidden");
+//             entry.target.classList.remove    ("image-hidden");
 //             entry.target.classList.add("in-view");
 //           }
 //         });
